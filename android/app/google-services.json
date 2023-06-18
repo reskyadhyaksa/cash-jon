@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "426057887932",
+    "project_id": "cashjon-a4975",
+    "storage_bucket": "cashjon-a4975.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426057887932:android:295d749b28f6e92186e0b9",
+        "android_client_info": {
+          "package_name": "com.example.cash_jon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426057887932-panh6j9a0rjaio0a7lhsb43suv7m5u6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdsXBrlCCNK3IWyIlqvY5HSPyYNPnVD8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426057887932-panh6j9a0rjaio0a7lhsb43suv7m5u6m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "426057887932-bke4eldc1ph3udap5ircmnjuvt5ldts1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cashJon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
