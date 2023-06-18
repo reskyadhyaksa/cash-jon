@@ -17,6 +17,69 @@ class _transaksi_pageState extends State<transaksi_page> {
   bool onSelected_pengeluaran = false;
   bool onSelected_pemasukan = true;
 
+  Widget row_button() {
+    return Row(children: [
+      SizedBox(width: 15),
+      ElevatedButton(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(19))),
+            backgroundColor: onSelected_pemasukan
+                ? MaterialStateColor.resolveWith((states) => Color(0xFF2A2F4F))
+                : MaterialStateColor.resolveWith((states) => Color(0xFF917FB3)),
+          ),
+          onPressed: () {
+            setState(() {
+              onSelected_pemasukan = true;
+              onSelected_pengeluaran = false;
+              jenis_transaksi = !jenis_transaksi;
+              jenis_transaksi = true;
+              print(jenis_transaksi);
+              get_pengeluaran();
+            });
+          },
+          child: Text('Masuk',
+              style: GoogleFonts.poppins(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white))),
+      SizedBox(width: 5),
+      ElevatedButton(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(19))),
+            backgroundColor: onSelected_pengeluaran
+                ? MaterialStateColor.resolveWith((states) => Color(0xFF2A2F4F))
+                : MaterialStateColor.resolveWith((states) => Color(0xFF917FB3)),
+          ),
+          onPressed: () {
+            setState(() {
+              onSelected_pengeluaran = true;
+              onSelected_pemasukan = false;
+              jenis_transaksi = !jenis_transaksi;
+              jenis_transaksi = false;
+              print(jenis_transaksi);
+              get_pemasukan();
+            });
+          },
+          child: Text('Keluar',
+              style: GoogleFonts.poppins(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white))),
+      Spacer(),
+
+      //? Line Beside Button
+      Container(
+          height: 6,
+          width: MediaQuery.of(context).size.width * 0.43,
+          decoration: BoxDecoration(
+              color: Color(0xFF2A2F4F),
+              borderRadius: BorderRadius.circular(3))),
+      SizedBox(width: 3)
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,68 +89,7 @@ class _transaksi_pageState extends State<transaksi_page> {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           children: [
-            Row(children: [
-              SizedBox(width: 15),
-              ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(19))),
-                    backgroundColor: onSelected_pemasukan
-                        ? MaterialStateColor.resolveWith(
-                            (states) => Color(0xFF2A2F4F))
-                        : MaterialStateColor.resolveWith(
-                            (states) => Color(0xFF917FB3)),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      onSelected_pemasukan = true;
-                      onSelected_pengeluaran = false;
-                      jenis_transaksi = !jenis_transaksi;
-                      jenis_transaksi = true;
-                      print(jenis_transaksi);
-                      get_pengeluaran();
-                    });
-                  },
-                  child: Text('Masuk',
-                      style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white))),
-              SizedBox(width: 5),
-              ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(19))),
-                    backgroundColor: onSelected_pengeluaran
-                        ? MaterialStateColor.resolveWith(
-                            (states) => Color(0xFF2A2F4F))
-                        : MaterialStateColor.resolveWith(
-                            (states) => Color(0xFF917FB3)),
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      onSelected_pengeluaran = true;
-                      onSelected_pemasukan = false;
-                      jenis_transaksi = !jenis_transaksi;
-                      jenis_transaksi = false;
-                      print(jenis_transaksi);
-                      get_pemasukan();
-                    });
-                  },
-                  child: Text('Keluar',
-                      style: GoogleFonts.poppins(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.white))),
-              Spacer(),
-              Container(
-                  height: 6,
-                  width: MediaQuery.of(context).size.width * 0.43,
-                  decoration: BoxDecoration(
-                      color: Color(0xFF2A2F4F),
-                      borderRadius: BorderRadius.circular(3))),
-              SizedBox(width: 3)
-            ]),
+            row_button(),
             SizedBox(height: 12),
             box_transaksi(context, jenis_transaksi)
           ],
