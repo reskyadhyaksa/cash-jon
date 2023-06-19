@@ -1,4 +1,4 @@
-import 'package:cash_jon/main_page/ringkasan_page/dompet/get_dompet.dart';
+import 'package:cash_jon/main_page/ringkasan_page/dompet/backend/get_dompet.dart';
 import 'package:cash_jon/main_page/ringkasan_page/dompet/tambah_dompet.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';

@@ -1,4 +1,4 @@
-import 'package:cash_jon/main_page/ringkasan_page/dompet/get_saldo.dart';
+import 'package:cash_jon/main_page/ringkasan_page/dompet/backend/get_saldo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,12 +16,13 @@ class _MyWidgetState extends State<get_dompet> {
   NumberFormat currencyFormat = NumberFormat.decimalPattern('vi_VN');
   final now_email = FirebaseAuth.instance.currentUser!.email;
   List dompet = ['BNI', 'BCA', 'DANA', 'SHOPEEPAY', 'MANDIRI'];
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('users/$now_email/catatan')
-          .where('jenis_bank', whereIn: dompet)
+          .where('dompet', whereIn: dompet)
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -37,7 +38,7 @@ class _MyWidgetState extends State<get_dompet> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(e.data()['jenis_bank'],
+                    Text(e.data()['dompet'],
                         style: GoogleFonts.poppins(
                             fontSize: 17,
                             color: Color(0xFF2A2F4F),

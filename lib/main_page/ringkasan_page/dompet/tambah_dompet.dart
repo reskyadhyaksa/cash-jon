@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:cash_jon/main_page/ringkasan_page/dompet/decoration/background.dart';
+import 'package:cash_jon/main_page/ringkasan_page/dompet/decoration/button_dompet.dart';
 import 'package:cash_jon/main_page/ringkasan_page/dompet/decoration/text_tambah.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,14 @@ class tambah_dompet extends StatelessWidget {
               background_dompet_bottom(),
               background_dompet_top(context),
               Column(
-                children: [text_tambah()],
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  text_tambah(),
+                  SizedBox(height: 20),
+                  input_dompet(context),
+                  submit_dompet_button(context)
+                ],
               ),
             ]),
           ),
