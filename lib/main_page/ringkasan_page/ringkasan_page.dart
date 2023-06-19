@@ -1,5 +1,5 @@
-import 'package:cash_jon/main_page/ringkasan_page/dompet_area.dart';
-import 'package:cash_jon/main_page/ringkasan_page/last_transaksi.dart';
+import 'package:cash_jon/main_page/ringkasan_page/dompet/dompet_area.dart';
+import 'package:cash_jon/main_page/ringkasan_page/last_transaksi/last_transaksi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -21,13 +21,16 @@ class _ringkasan_pageState extends State<ringkasan_page> {
         SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
     return const Scaffold(
-        resizeToAvoidBottomInset: true,
+        // resizeToAvoidBottomInset: true,
         backgroundColor: Colors.white,
-        body: Stack(children: [
-          Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Column(
-                  children: [const dompet_field(), const transaksi_area()]))
-        ]));
+        body: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
+          child: Stack(children: [
+            Padding(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: Column(
+                    children: [const dompet_field(), const transaksi_area()]))
+          ]),
+        ));
   }
 }

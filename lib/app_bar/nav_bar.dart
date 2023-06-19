@@ -1,10 +1,11 @@
+import 'package:cash_jon/app_bar/count_saldo.dart';
 import 'package:cash_jon/main_page/ringkasan_page/ringkasan_page.dart';
-import 'package:cash_jon/main_page/transaksi_page/transaksi_page.dart';
+import 'package:cash_jon/main_page/transaksi_page/_transaksi_page.dart';
 import 'package:cash_jon/main_page/add_transaksi/add_transaksi.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'main_page/akun_page/akun_page.dart';
+import '../main_page/akun_page/akun_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -177,14 +178,13 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
                         color: Colors.white)),
                 Row(
                   children: [
-                    Text(
-                        secure_saldo == true
-                            ? formattedAmount.toString()
-                            : '${formattedAmount.toString().replaceAll(RegExp(r"."), "*")}',
-                        style: GoogleFonts.poppins(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white)),
+                    secure_saldo == true
+                        ? count_saldo()
+                        : Text('Rp *************',
+                            style: GoogleFonts.poppins(
+                                fontSize: 22,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w700)),
                     IconButton(
                       onPressed: () {
                         setState(() {

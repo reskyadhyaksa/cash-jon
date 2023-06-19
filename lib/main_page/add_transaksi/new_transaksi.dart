@@ -11,7 +11,7 @@ Future new_transaksi(String jenis_transaksi, String deskripsi, int nominal,
     'deskripsi': deskripsi,
     'nominal': nominal,
     'tanggal': tanggal,
-    'waktu': waktu
+    'waktu': waktu,
   };
 
   print(nowEmail);
@@ -22,7 +22,7 @@ Future new_transaksi(String jenis_transaksi, String deskripsi, int nominal,
   String new_code = 'CJ' + potongTanggal + randomNumber.toString();
 
   await FirebaseFirestore.instance
-      .collection('users/$nowEmail/$jenis_transaksi')
+      .collection('users/$nowEmail/catatan')
       .doc(new_code)
       .set(newTransaksi);
 }

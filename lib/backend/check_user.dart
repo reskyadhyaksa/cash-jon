@@ -1,5 +1,5 @@
 import 'package:cash_jon/entry_page/SignIn_Page.dart';
-import 'package:cash_jon/nav_bar.dart';
+import 'package:cash_jon/app_bar/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

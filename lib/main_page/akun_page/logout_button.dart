@@ -12,12 +12,18 @@ void sign_out(BuildContext context) async {
 
 Widget logout_button(BuildContext context) {
   return ElevatedButton(
+      style: ButtonStyle(
+          backgroundColor:
+              MaterialStateColor.resolveWith((states) => Color(0xFF2A2F4F)),
+          minimumSize: MaterialStateProperty.all(Size(250, 42)),
+          shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
       onPressed: () {
         sign_out(context);
       },
       child: Text(
         'Sign Out',
         style: GoogleFonts.poppins(
-            fontSize: 15, color: Colors.black, fontWeight: FontWeight.w700),
+            fontSize: 15, color: Colors.white, fontWeight: FontWeight.w700),
       ));
 }

@@ -1,8 +1,23 @@
+import 'package:cash_jon/main_page/ringkasan_page/dompet/get_dompet.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class transaksi_area extends StatelessWidget {
-  const transaksi_area({super.key});
+class dompet_field extends StatelessWidget {
+  const dompet_field({super.key});
+
+  //! BUTTON DOMPET LIHAT SEMUA
+  Widget lihat_dompet() {
+    return TextButton(
+        style: TextButton.styleFrom(
+            padding: EdgeInsets.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+        onPressed: () {},
+        child: Text('Lihat semua',
+            style: GoogleFonts.poppins(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF917FB3))));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,42 +30,24 @@ class transaksi_area extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Transaksi Terakhir',
+                'Dompet saya',
                 style: GoogleFonts.poppins(
                     fontSize: 15,
                     fontWeight: FontWeight.w700,
                     color: Colors.black),
               ),
-              SizedBox(width: MediaQuery.of(context).size.width / 3.8),
-              lihat_transaksi(),
+              SizedBox(width: MediaQuery.of(context).size.width / 2.7),
+              lihat_dompet(),
             ],
           ),
           Container(
               width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
               height: 175,
               decoration: BoxDecoration(
                   color: Color(0xFF2A2F4F),
                   borderRadius: BorderRadius.circular(10)),
-              child: Center(
-                child: Text('Last Transaksi',
-                    style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700)),
-              ))
+              child: get_dompet()),
         ]));
   }
-}
-
-Widget lihat_transaksi() {
-  return TextButton(
-      style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-      onPressed: () {},
-      child: Text('Lihat semua',
-          style: GoogleFonts.poppins(
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
-              color: Color(0xFF917FB3))));
 }

@@ -26,18 +26,19 @@ class get_pengeluaran extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<get_pengeluaran> {
-  NumberFormat currencyFormat = NumberFormat('#,##0', 'en-US');
+  NumberFormat currencyFormat = NumberFormat.decimalPattern('vi_VN');
   final now_email = FirebaseAuth.instance.currentUser!.email;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
-          .collection('users/$now_email/pengeluaran')
+          .collection('users/$now_email/catatan')
+          .where('jenis_transaksi', isEqualTo: 'pengeluaran')
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator());
+          return Container(color: Colors.transparent);
         } else {
           return ListView(
             children: snapshot.data!.docs.map((e) {
@@ -53,7 +54,14 @@ class _MyWidgetState extends State<get_pengeluaran> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(e.data()['deskripsi'],
+                        Text(
+                            e.data()['deskripsi'].toString().length < 18
+                                ? e.data()['deskripsi']
+                                : e
+                                        .data()['deskripsi']
+                                        .toString()
+                                        .substring(0, 18) +
+                                    '...',
                             style: GoogleFonts.poppins(
                                 fontSize: 17,
                                 color: Color(0xFF2A2F4F),
@@ -74,7 +82,7 @@ class _MyWidgetState extends State<get_pengeluaran> {
                     ),
                     Spacer(),
                     Text(
-                      '- Rp. ' + currencyFormat.format(e.data()['nominal']),
+                      '- Rp ' + currencyFormat.format(e.data()['nominal']),
                       style: GoogleFonts.poppins(
                           fontSize: 17,
                           color: Color(0xFFD34F4F),

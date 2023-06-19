@@ -1,6 +1,10 @@
 import 'package:cash_jon/main_page/transaksi_page/box_transaksi.dart';
 import 'package:cash_jon/main_page/transaksi_page/get_pemasukan.dart';
 import 'package:cash_jon/main_page/transaksi_page/get_pengeluaran.dart';
+import 'package:cash_jon/main_page/transaksi_page/widget_pemasukan.dart';
+import 'package:cash_jon/main_page/transaksi_page/widget_pengeluaran.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,9 +17,11 @@ class transaksi_page extends StatefulWidget {
 
 class _transaksi_pageState extends State<transaksi_page> {
   //* VARIABLE DECLARATION
+  final now_email = FirebaseAuth.instance.currentUser!.email;
   bool jenis_transaksi = true; //? TRUE : PEMASUKAN || FALSE : PENGELUARAN
   bool onSelected_pengeluaran = false;
   bool onSelected_pemasukan = true;
+  int sum = 0;
 
   Widget row_button() {
     return Row(children: [
@@ -85,16 +91,34 @@ class _transaksi_pageState extends State<transaksi_page> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            row_button(),
-            SizedBox(height: 12),
-            box_transaksi(context, jenis_transaksi)
-          ],
-        ),
-      ),
+      body: StreamBuilder<Object>(
+          stream: FirebaseFirestore.instance
+              .collection("users/$now_email/catatan")
+              .snapshots(),
+          builder: (context, snapshot) {
+            return SingleChildScrollView(
+              physics: NeverScrollableScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: [
+                    Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          box_pemasukan(),
+                          SizedBox(width: 10),
+                          box_pengeluaran()
+                        ]),
+                    SizedBox(height: 20),
+                    row_button(),
+                    SizedBox(height: 12),
+                    box_transaksi(context, jenis_transaksi)
+                  ],
+                ),
+              ),
+            );
+          }),
     );
   }
 }

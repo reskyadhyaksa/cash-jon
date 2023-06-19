@@ -2,7 +2,7 @@ import 'package:cash_jon/entry_page/SignUp_Page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
-import 'package:cash_jon/nav_bar.dart';
+import 'package:cash_jon/app_bar/nav_bar.dart';
 
 class login_page extends StatefulWidget {
   const login_page({super.key});

@@ -1,3 +1,4 @@
+import 'package:cash_jon/main_page/akun_page/box_akun.dart';
 import 'package:cash_jon/main_page/akun_page/logout_button.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class akun_page extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
-          children: [logout_button(context)],
+          children: [box_akun(), SizedBox(height: 50), logout_button(context)],
         ),
       ),
     );

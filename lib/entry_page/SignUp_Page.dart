@@ -1,6 +1,6 @@
 // import 'package:cash_jon/entry_page/login_property/_login_page.dart';
 import 'package:cash_jon/entry_page/SignIn_Page.dart';
-import 'package:cash_jon/nav_bar.dart';
+import 'package:cash_jon/app_bar/nav_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
