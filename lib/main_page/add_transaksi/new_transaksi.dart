@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-Future new_transaksi(String jenis_transaksi, String deskripsi, int nominal,
-    String tanggal, String waktu) async {
+Future new_transaksi(String dompet, String jenis_transaksi, String deskripsi,
+    int nominal, String tanggal, String waktu) async {
   final nowEmail = FirebaseAuth.instance.currentUser!.email;
   final newTransaksi = {
-    'jenis_bank': "bank_mandiri",
+    'jenis_bank': dompet,
     'jenis_transaksi': jenis_transaksi,
     'deskripsi': deskripsi,
     'nominal': nominal,
