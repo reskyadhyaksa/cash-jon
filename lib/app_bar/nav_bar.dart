@@ -205,29 +205,35 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
       resizeToAvoidBottomInset: false,
       appBar: PreferredSize(
           preferredSize: Size.fromHeight(125),
-          child: Stack(children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 170,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadiusDirectional.circular(10)),
-              child: Image.asset(
-                'assets/img/background1.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Positioned(
-              right: 0,
-              child: Padding(
-                padding: EdgeInsets.only(top: 55, right: 25),
-                child: Image.asset(
-                  'assets/img/logo_cashjon.png',
-                  scale: 4,
-                ),
-              ),
-            ),
-            title_text(),
-          ])),
+          child: StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('users/$emailUser/catatan')
+                  .snapshots(),
+              builder: (context, snapshot) {
+                return Stack(children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 170,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadiusDirectional.circular(10)),
+                    child: Image.asset(
+                      'assets/img/background1.png',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 55, right: 25),
+                      child: Image.asset(
+                        'assets/img/logo_cashjon.png',
+                        scale: 4,
+                      ),
+                    ),
+                  ),
+                  title_text(),
+                ]);
+              })),
       floatingActionButton: SizedBox(
         height: 75,
         width: 75,

@@ -24,7 +24,15 @@ class _MyWidgetState extends State<get_dompet> {
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Container(color: Colors.transparent);
+          return Container(
+              color: Colors.transparent,
+              child: Text(
+                'Tidak ada Dompet',
+                style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700),
+              ));
         } else {
           return ListView(
             children: snapshot.data!.docs.map((e) {

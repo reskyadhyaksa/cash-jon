@@ -11,7 +11,7 @@ void dompet_pop_up(BuildContext context) {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
           decoration: BoxDecoration(
-              color: Color(0xFF2A2F4F),
+              color: Color(0xFF02C62D),
               borderRadius: BorderRadius.circular(10)),
           child: Text(
             'BERHASIL MENAMBAH DOMPET',
