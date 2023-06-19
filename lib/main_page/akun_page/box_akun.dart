@@ -135,7 +135,7 @@ class _box_akunState extends State<box_akun> {
                           isDense: true,
                           contentPadding: EdgeInsets.symmetric(
                               horizontal: 10, vertical: 10),
-                          hintText: 'Change Password',
+                          hintText: 'Current Password',
                           hintStyle: GoogleFonts.poppins(
                               fontSize: 15,
                               color: Colors.grey[800],
