@@ -15,13 +15,13 @@ class get_dompet extends StatefulWidget {
 class _MyWidgetState extends State<get_dompet> {
   NumberFormat currencyFormat = NumberFormat.decimalPattern('vi_VN');
   final now_email = FirebaseAuth.instance.currentUser!.email;
-
+  List dompet = ['BNI', 'BCA', 'DANA', 'SHOPEEPAY', 'MANDIRI'];
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('users/$now_email/catatan')
-          .where('jenis_bank', isEqualTo: 'bank mandiri')
+          .where('jenis_bank', whereIn: dompet)
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {

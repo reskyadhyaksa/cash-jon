@@ -27,17 +27,20 @@ class transaksi_area extends StatelessWidget {
   }
 }
 
-Widget lihat_transaksi() {
-  return TextButton(
-      style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-      onPressed: () {},
-      child: Text('Lihat semua',
-          style: GoogleFonts.poppins(
-              fontSize: 15,
-              fontWeight: FontWeight.w700,
-              color: Color(0xFF917FB3))));
+Widget lihat_transaksi(BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.only(right: 7),
+    child: TextButton(
+        style: TextButton.styleFrom(
+            padding: EdgeInsets.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+        onPressed: () {},
+        child: Text('Lihat semua',
+            style: GoogleFonts.poppins(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF917FB3)))),
+  );
 }
 
 Widget box_transaksiProperty(BuildContext context) {
@@ -48,8 +51,8 @@ Widget box_transaksiProperty(BuildContext context) {
         style: GoogleFonts.poppins(
             fontSize: 15, fontWeight: FontWeight.w700, color: Colors.black),
       ),
-      SizedBox(width: MediaQuery.of(context).size.width / 3.8),
-      lihat_transaksi(),
+      Spacer(),
+      lihat_transaksi(context),
     ],
   );
 }

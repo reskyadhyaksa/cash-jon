@@ -7,7 +7,7 @@ Future new_transaksi(String dompet, String jenis_transaksi, String deskripsi,
     int nominal, String tanggal, String waktu) async {
   final nowEmail = FirebaseAuth.instance.currentUser!.email;
   final newTransaksi = {
-    'jenis_bank': dompet,
+    'jenis_bank': dompet.replaceAll('bank ', ''),
     'jenis_transaksi': jenis_transaksi,
     'deskripsi': deskripsi,
     'nominal': nominal,

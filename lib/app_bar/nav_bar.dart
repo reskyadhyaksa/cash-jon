@@ -46,7 +46,7 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
   @override
   Widget build(BuildContext context) {
     //! ******* CUSTOM BOTTOM NAV BAR ******* !//
-    Widget Bottom_App_Bar() {
+    Widget Bottom_App_Bar(int selected_index) {
       return BottomAppBar(
           height: 65,
           shape: CircularNotchedRectangle(),
@@ -61,7 +61,8 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
                   onTap: () {
                     setState(() {
                       print(displayName);
-                      selected_index = 0;
+                      this.selected_index = 0;
+                      selected_index = this.selected_index;
                     });
                   },
                   child: Column(
@@ -91,7 +92,8 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
                   borderRadius: BorderRadius.circular(10),
                   onTap: () {
                     setState(() {
-                      selected_index = 2;
+                      this.selected_index = 2;
+                      selected_index = this.selected_index;
                     });
                   },
                   child: Column(
@@ -122,6 +124,7 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
                   onTap: () {
                     setState(() {
                       selected_index = 1;
+                      selected_index = this.selected_index;
                     });
                   },
                   child: Column(
@@ -253,7 +256,7 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
               .values
               .toList()),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      bottomNavigationBar: Bottom_App_Bar(),
+      bottomNavigationBar: Bottom_App_Bar(selected_index),
     );
   }
 }

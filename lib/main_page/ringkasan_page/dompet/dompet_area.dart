@@ -1,7 +1,7 @@
 import 'package:cash_jon/main_page/ringkasan_page/dompet/get_dompet.dart';
+import 'package:cash_jon/main_page/ringkasan_page/dompet/tambah_dompet.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,17 +9,25 @@ class dompet_field extends StatelessWidget {
   const dompet_field({super.key});
 
   //! BUTTON DOMPET LIHAT SEMUA
-  Widget lihat_dompet() {
-    return TextButton(
-        style: TextButton.styleFrom(
-            padding: EdgeInsets.zero,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap),
-        onPressed: () {},
-        child: Text('Lihat semua',
-            style: GoogleFonts.poppins(
-                fontSize: 15,
-                fontWeight: FontWeight.w700,
-                color: Color(0xFF917FB3))));
+  Widget lihat_dompet(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 5),
+      child: TextButton(
+          style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => tambah_dompet(),
+            );
+          },
+          child: Text('Tambah Dompet',
+              style: GoogleFonts.poppins(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: Color(0xFF917FB3)))),
+    );
   }
 
   @override
@@ -45,8 +53,8 @@ class dompet_field extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           color: Colors.black),
                     ),
-                    SizedBox(width: MediaQuery.of(context).size.width / 2.7),
-                    lihat_dompet(),
+                    Spacer(),
+                    lihat_dompet(context),
                   ],
                 ),
                 Container(

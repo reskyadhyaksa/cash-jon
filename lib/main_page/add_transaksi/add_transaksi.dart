@@ -112,21 +112,6 @@ class _add_transaksiState extends State<add_transaksi> {
     );
   }
 
-  //! ********** TEXT DOMPET ********** !//
-  Widget text_dompet() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10, bottom: 7),
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Text('Dompet                  :',
-            style: GoogleFonts.poppins(
-                fontSize: 17,
-                color: Colors.white,
-                fontWeight: FontWeight.w700)),
-      ),
-    );
-  }
-
 //! ********** INPUT TEXT DESKRIPSI ********** !//
   Widget input_teks_deskripsi() {
     return Container(
@@ -196,39 +181,6 @@ class _add_transaksiState extends State<add_transaksi> {
                 fontWeight: FontWeight.w700)));
   }
 
-  Widget input_dompet() {
-    return Container(
-      height: 40,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7), color: Color(0xFFD9D9D9)),
-      child: TextField(
-          textInputAction: TextInputAction.next,
-          onTapOutside: (event) {
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          onEditingComplete: () {
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          controller: bank_controller,
-          maxLines: 4,
-          decoration: InputDecoration(
-              isDense: true,
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              hintText: 'Masukkan Nama Dompet',
-              hintStyle: GoogleFonts.poppins(
-                  fontSize: 15,
-                  color: Colors.grey[800],
-                  fontWeight: FontWeight.w500),
-              border: InputBorder.none),
-          style: GoogleFonts.poppins(
-              fontSize: 16,
-              color: Color(0xFF2A2F4F),
-              fontWeight: FontWeight.w700)),
-    );
-  }
-
 //! ********** BUTTON BACK  ********** !//
   Widget button_back() {
     return Padding(
@@ -275,7 +227,7 @@ class _add_transaksiState extends State<add_transaksi> {
                 deskripsi_controller.text != "" &&
                 new_saldo_mask.text != "") {
               new_transaksi(
-                  bank_controller.text,
+                  bank_controller.text.toUpperCase(),
                   'pengeluaran',
                   deskripsi_controller.text,
                   new_saldo_mask.numberValue.toInt(),
@@ -526,8 +478,6 @@ class _add_transaksiState extends State<add_transaksi> {
                           button_jenis_pengeluaran(),
                           teks_deskripsi(),
                           input_teks_deskripsi(),
-                          text_dompet(),
-                          input_dompet(),
                           text_nominal(),
                           input_teks_nominal(),
                           row_dateTime(context),
