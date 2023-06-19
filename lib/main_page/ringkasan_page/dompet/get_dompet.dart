@@ -21,11 +21,11 @@ class _MyWidgetState extends State<get_dompet> {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('users/$now_email/catatan')
-          .where('jenis_dompet', isEqualTo: 'Bank BNI')
+          .where('jenis_bank', isEqualTo: 'bank mandiri')
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
-          return Center(child: CircularProgressIndicator());
+          return Container(color: Colors.transparent);
         } else {
           return ListView(
             children: snapshot.data!.docs.map((e) {
@@ -37,7 +37,7 @@ class _MyWidgetState extends State<get_dompet> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(e.data()['jenis_dompet'],
+                    Text(e.data()['jenis_bank'],
                         style: GoogleFonts.poppins(
                             fontSize: 17,
                             color: Color(0xFF2A2F4F),
