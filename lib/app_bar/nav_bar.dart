@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../main_page/akun_page/akun_page.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class bottom_nav_bar extends StatefulWidget {
   const bottom_nav_bar({super.key});
@@ -46,9 +45,6 @@ class _bottom_nav_barState extends State<bottom_nav_bar> {
 
   @override
   Widget build(BuildContext context) {
-    NumberFormat currencyFormat = NumberFormat('#,##0', 'en-US');
-    String formattedAmount = 'Rp ' + currencyFormat.format(jumlah_saldo_now);
-
     //! ******* CUSTOM BOTTOM NAV BAR ******* !//
     Widget Bottom_App_Bar() {
       return BottomAppBar(
