@@ -83,7 +83,7 @@ Widget submit_dompet_button(BuildContext context) {
             dompet_pop_up(context);
           } else {
             Navigator.pop(context);
-            invalid_dompet_pop_up(context);
+            error_pop_up(context);
           }
         },
         child: Text('Tambah',

@@ -14,7 +14,7 @@ void dompet_pop_up(BuildContext context) {
               color: Color(0xFF2A2F4F),
               borderRadius: BorderRadius.circular(10)),
           child: Text(
-            'BERHASIL MENAMBAH DOMPETR',
+            'BERHASIL MENAMBAH DOMPET',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 fontSize: 19, color: Colors.white, fontWeight: FontWeight.w700),
@@ -37,6 +37,28 @@ void invalid_dompet_pop_up(BuildContext context) {
               borderRadius: BorderRadius.circular(10)),
           child: Text(
             'Gagal Menambah Dompet\nForm tidak boleh kosong',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.poppins(
+                fontSize: 18, color: Colors.white, fontWeight: FontWeight.w700),
+          ),
+        ),
+      )));
+}
+
+void error_pop_up(BuildContext context) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      content: Padding(
+        padding: const EdgeInsets.only(bottom: 80),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          decoration: BoxDecoration(
+              color: Color(0xFFD34F4F),
+              borderRadius: BorderRadius.circular(10)),
+          child: Text(
+            'Bank tidak terdaftar',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 fontSize: 18, color: Colors.white, fontWeight: FontWeight.w700),
