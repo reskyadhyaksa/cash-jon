@@ -14,8 +14,8 @@ Widget logout_button(BuildContext context) {
   return ElevatedButton(
       style: ButtonStyle(
           backgroundColor:
-              MaterialStateColor.resolveWith((states) => Color(0xFF2A2F4F)),
-          minimumSize: MaterialStateProperty.all(Size(250, 42)),
+              MaterialStateColor.resolveWith((states) => Color(0xFF5C469C)),
+          minimumSize: MaterialStateProperty.all(Size(200, 42)),
           shape: MaterialStateProperty.all(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
       onPressed: () {

@@ -1,4 +1,3 @@
-import 'package:cash_jon/main_page/ringkasan_page/dompet/backend/get_saldo.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +20,7 @@ class _MyWidgetState extends State<get_dompet> {
   Widget build(BuildContext context) {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
-          .collection('users/$now_email/catatan')
-          .where('dompet', whereIn: dompet)
+          .collection('users/$now_email/dompet')
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -44,7 +42,7 @@ class _MyWidgetState extends State<get_dompet> {
                             color: Color(0xFF2A2F4F),
                             fontWeight: FontWeight.w700)),
                     Spacer(),
-                    get_saldo()
+                    // get_saldo()
                   ],
                 ),
               ));

@@ -35,7 +35,7 @@ class dompet_field extends StatelessWidget {
     final now_email = FirebaseAuth.instance.currentUser!.email;
     return StreamBuilder<Object>(
         stream: FirebaseFirestore.instance
-            .collection("users/$now_email/catatan")
+            .collection("users/$now_email/dompet")
             .snapshots(),
         builder: (context, snapshot) {
           return Container(

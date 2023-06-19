@@ -1,4 +1,6 @@
 import 'package:cash_jon/main_page/akun_page/box_akun.dart';
+import 'package:cash_jon/main_page/akun_page/change_button.dart';
+import 'package:cash_jon/main_page/akun_page/delete_akun.dart';
 import 'package:cash_jon/main_page/akun_page/logout_button.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +12,18 @@ class akun_page extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          children: [box_akun(), SizedBox(height: 50), logout_button(context)],
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: Center(
+          child: Column(
+            children: [
+              box_akun(),
+              SizedBox(height: 50),
+              change_button(context),
+              logout_button(context),
+              delete_akun(context)
+            ],
+          ),
         ),
       ),
     );

@@ -61,24 +61,44 @@ Widget submit_dompet_button(BuildContext context) {
               dompet_controller.text != dompet_list) {
             Navigator.pop(context);
             invalid_dompet_pop_up(context);
-          } else if (dompet_controller.text.toUpperCase() == 'BNI') {
-            new_dompet(dompet_controller.text);
+          } else if (dompet_controller.text
+                  .toUpperCase()
+                  .replaceAll('BANK ', '') ==
+              'BNI') {
+            new_dompet(
+                dompet_controller.text.toUpperCase().replaceAll('BANK ', ''));
             Navigator.pop(context);
             dompet_pop_up(context);
-          } else if (dompet_controller.text.toUpperCase() == 'BCA') {
-            new_dompet(dompet_controller.text);
+          } else if (dompet_controller.text
+                  .toUpperCase()
+                  .replaceAll('BANK ', '') ==
+              'BCA') {
+            new_dompet(
+                dompet_controller.text.toUpperCase().replaceAll('BANK ', ''));
             Navigator.pop(context);
             dompet_pop_up(context);
-          } else if (dompet_controller.text.toUpperCase() == 'MANDIRI') {
-            new_dompet(dompet_controller.text);
+          } else if (dompet_controller.text
+                  .toUpperCase()
+                  .replaceAll('BANK ', '') ==
+              'MANDIRI') {
+            new_dompet(
+                dompet_controller.text.toUpperCase().replaceAll('BANK ', ''));
             Navigator.pop(context);
             dompet_pop_up(context);
-          } else if (dompet_controller.text.toUpperCase() == 'DANA') {
-            new_dompet(dompet_controller.text);
+          } else if (dompet_controller.text
+                  .toUpperCase()
+                  .replaceAll('BANK ', '') ==
+              'DANA') {
+            new_dompet(
+                dompet_controller.text.toUpperCase().replaceAll('BANK ', ''));
             Navigator.pop(context);
             dompet_pop_up(context);
-          } else if (dompet_controller.text.toUpperCase() == 'SHOPEEPAY') {
-            new_dompet(dompet_controller.text);
+          } else if (dompet_controller.text
+                  .toUpperCase()
+                  .replaceAll('BANK ', '') ==
+              'SHOPEEPAY') {
+            new_dompet(
+                dompet_controller.text.toUpperCase().replaceAll('BANK ', ''));
             Navigator.pop(context);
             dompet_pop_up(context);
           } else {
